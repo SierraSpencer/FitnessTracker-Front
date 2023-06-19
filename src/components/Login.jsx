@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import './login.css';
 import { registerUser, loginUser } from '../../api';
 import { useNavigate, useOutletContext } from 'react-router';
 
@@ -48,19 +47,15 @@ const Login = () =>
     <>
       <h3>Register</h3>
       <form id="register-form" onSubmit={handleRegister}>
-        <input placeholder="Create Username" type="text" value={registerUsername} onChange={(e) => setUsername(e.target.value)}
-        />
-        <input placeholder="Create Password" type="password" value={registerPassword} onChange={(e) => setPassword(e.target.value)}
-        />
+        <input placeholder="Create Username" type="text" value={registerUsername} onChange={(e) => setUsername(e.target.value)}/>
+        <input placeholder="Create Password" type="password" value={registerPassword} onChange={(e) => setPassword(e.target.value)}/>
         <button type="submit">Create New User</button>
         {formError}
       </form>
       <h3>Login</h3>
       <form id="login-form" onSubmit={handleLogin}>
-        <input placeholder="Username" type="text" value={loginUsername} onChange={(e) => setLoginUsername(e.target.value)}
-        />
-        <input placeholder="Password" type="password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)}
-        />
+        <input placeholder="Username" type="text" value={loginUsername} onChange={(e) => setLoginUsername(e.target.value)}/>
+        <input placeholder="Password" type="password" value={loginPassword} onChange={(e) => setLoginPassword(e.target.value)}/>
         <button type="submit">Login</button>
         {loginFormError}
       </form>
