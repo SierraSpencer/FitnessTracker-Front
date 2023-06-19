@@ -1,41 +1,32 @@
 import React from "react";
-import { useState } from "react";
-import { useOutletContext } from "react-router-dom";
-import { postActivities } from "../api";
+import { useState } from 'react';
+import { postActivities } from '../../api';
+import { useOutletContext } from 'react-router';
 
-export default function AllActivities() 
+export default function Activities() 
 {
-    const [name, setName] = useState("");
-    const [description, setDescription] = useState("");
-    const {activities, user, token} = useOutletContext();
-    async function handleSubmit(event)
-  {
-      event.preventDefault()
-      if(user) 
-      {
-          const result = await postActivities(token, name, description);
-          console.log(result)
-      }
-  }
-    return(
-     <div>
-      <h1 id="header">Activities</h1>
-      {user.id && (
-         <>
-            <form onSubmit={handleSubmit}>
-            <input placeholder="Name" onChange={(event) => setName(event.target.value)} value={name}></input>
-            <input placeholder="Description" onChange={(event) => setDescription(event.target.value)} value={description}></input>
-            <button id="create-activity">Create Activity</button>
-        </form>
-         </>
-        )}
-      {activities.map((activity) => {
-          return (
-          <div key={activity.id}>
-            <div>Name: {activity.name}</div>
-            <div>Description: {activity.description}</div>
+  const { allActivities, setAllActivities } = useOutletContext();
+
+  useEffect(() => {
+    (async () => 
+     {
+      const allActivities = await getAllActivities();
+      setAllActivities(allActivities);
+      console.log(allActivities[0]);
+    })();
+  }, []);
+
+  return (
+    <>
+      <p>Returning {allActivities.length} activities...</p>
+      {allActivities.map((activity) => {
+        return (
+          <div key={activity.id} className="activity-card">
+            <h4>{activity.name}</h4>
+            <p>Description: {activity.description}</p>
           </div>
-        );})}   
-    </div>
-    )
-}
+        );
+      })}
+    </>
+  );
+};
