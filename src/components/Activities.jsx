@@ -10,7 +10,7 @@ export default function Activities()
   useEffect(() => {
     (async () => 
      {
-      const allActivities = await getAllActivities();
+      const allActivities = await postActivities();
       setAllActivities(allActivities);
       console.log(allActivities[0]);
     })();
