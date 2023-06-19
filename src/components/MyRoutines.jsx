@@ -1,9 +1,8 @@
 import { useNavigate, useOutletContext } from 'react-router';
 import { seeUserPublicRoutines, deleteRoutine } from '../../api';
-import { useEffect, useState } from 'react';
-import PopUpEdit from '../utils/popUpEdit';
+import { useState } from 'react';
 
-const MyRoutines = () => 
+export default function MyRoutines()
 {
   const { myProfile, token, setAllRoutines } = useOutletContext();
   const [userRoutines, setUserRoutines] = useState([]);
