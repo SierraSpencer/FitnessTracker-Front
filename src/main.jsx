@@ -1,25 +1,19 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import './index.css'
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import Root from './routes/root';
+import './index.css';
+import {createBrowserRouter,RouterProvider} from "react-router-dom";
 import Homepage from './components/Homepage';
-import Register from './components/Register';
 import Login from './components/Login';
 import Routines from './components/Routines';
 import MyRoutines from './components/MyRoutines';
 import Activities from './components/Activities';
 import Routine from './components/Routine';
 
-
 const router = createBrowserRouter([
   {
     path: "/",
     element:  <Root />,
-
     children: [
       {
         path: "/",
@@ -45,14 +39,9 @@ const router = createBrowserRouter([
         path: "/login",
         element: <Login />,
       },
-      {
-        path: "/register",
-        element: <Register />,
-      },
     ]
   },
 ]);
-
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
