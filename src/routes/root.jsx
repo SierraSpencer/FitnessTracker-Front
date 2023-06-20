@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import Nav from '../components/nav/nav';
+import Nav from '../components/nav';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { fetchMyProfile } from '../api';
 
