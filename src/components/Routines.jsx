@@ -23,7 +23,7 @@ export default function AllRoutines()
                     <div>Duration: {activity.duration}</div>
                     <div>Count: {activity.count}</div>
                 </div>
-                </div>
+                </>
                 )}
             </div>
             );}})
