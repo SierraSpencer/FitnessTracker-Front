@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 import './myRoutines.css';
 import CreateRoutineForm from '../RoutineForm';
 
-export default MyRoutines() 
+export default function MyRoutines() 
 {
   const { myProfile, token, setAllRoutines } = useOutletContext();
   const [userRoutines, setUserRoutines] = useState([]);
