@@ -3,7 +3,7 @@ import { getAllRoutines, createRoutine } from '../api';
 import './Routines.css';
 import { useNavigate, useOutletContext } from 'react-router';
 import RoutinesHeader from './RoutinesHeader';
-import CreateRoutineForm from './RoutineForm';
+import CreateRoutineForm from './CreateRoutineForm';
 
 export default function Routines()
 {
