@@ -1,9 +1,10 @@
 const BASE_URL = 'https://fitnesstrac-kr.herokuapp.com/api';
 
-// USERS
 //POST/users/register
-export async function registerUser(username, password) {
-  try {
+export async function registerUser(username, password) 
+{
+  try 
+  {
     const response = await fetch(`${BASE_URL}/users/register`, {
       method: 'POST',
       headers: {
@@ -15,8 +16,6 @@ export async function registerUser(username, password) {
       }),
     });
     const result = await response.json();
-    // As written below you can log your result
-    // to check what data came back from the above code.
     console.log(result);
     return result;
   } catch (err) {
@@ -63,8 +62,6 @@ export async function fetchMyProfile(token) {
 }
 
 //GET/users/:username/routines
-//(Gets public routines of any user)
-
 export async function seeUserPublicRoutines(token, usernameOfSearch) {
   try {
     const response = await fetch(
@@ -84,7 +81,6 @@ export async function seeUserPublicRoutines(token, usernameOfSearch) {
   }
 }
 
-//ROUTINES
 //GET/routines
 export async function getAllRoutines() {
   try {
@@ -97,8 +93,6 @@ export async function getAllRoutines() {
 }
 
 //POST/routines
-//creates a new routine
-
 export async function createRoutine(token, name, goal, isPublic) {
   try {
     const response = await fetch(`${BASE_URL}/routines`, {
@@ -122,8 +116,6 @@ export async function createRoutine(token, name, goal, isPublic) {
 }
 
 //POST/routines/:routineId/activities
-//Attaches a single activity to a routine
-
 export async function addActivityToRoutine(
   routineId,
   activityId,
@@ -154,8 +146,6 @@ export async function addActivityToRoutine(
 }
 
 //PATCH/routines/:routineId
-//Edit existing routine
-
 export async function editRoutine(token, routineId, editFields) {
   try {
     const response = await fetch(`${BASE_URL}/routines/${routineId}`, {
@@ -175,8 +165,6 @@ export async function editRoutine(token, routineId, editFields) {
 }
 
 //DELETE/routines/:routineId
-//Permanentyly deletes a routine
-
 export async function deleteRoutine(token, routineId) {
   try {
     const response = await fetch(`${BASE_URL}/routines/${routineId}`, {
@@ -194,7 +182,6 @@ export async function deleteRoutine(token, routineId) {
   }
 }
 
-//ACTIVITIES
 //GET/activities
 export async function getAllActivities() {
   try {
@@ -208,8 +195,6 @@ export async function getAllActivities() {
 }
 
 //POST/ACTIVITIES
-//Create a new activity
-
 export async function createActivity(token, name, description) {
   try {
     const response = await fetch(`${BASE_URL}/activities`, {
@@ -232,8 +217,6 @@ export async function createActivity(token, name, description) {
 }
 
 //DELETE /routine_activities/:routineActivityId
-//remove activity from routine
-
 export async function removeActivityFromRoutine(routineActivityId, token) {
   try {
     const response = await fetch(
@@ -255,7 +238,6 @@ export async function removeActivityFromRoutine(routineActivityId, token) {
 }
 
 //PATCH /routine_activities/:routineActivityId
-
 export async function editCountAndDuration(token, routineId, editFields) {
   try {
     const response = await fetch(
