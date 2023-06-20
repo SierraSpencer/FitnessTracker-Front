@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router';
 
-const RoutineForm = ({
+const CreateRoutineForm = ({
   createWindowOpen,
   createRoutine,
   getAllRoutines,
