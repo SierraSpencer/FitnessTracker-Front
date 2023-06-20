@@ -5,7 +5,8 @@ import { useNavigate, useOutletContext } from 'react-router';
 import RoutinesHeader from './RoutinesHeader';
 import CreateRoutineForm from './RoutineForm';
 
-const Routines = () => {
+export default function Routines()
+{
   const { allRoutines, setAllRoutines, myProfile, token } = useOutletContext();
   const [createWindowOpen, setCreateWindowOpen] = useState(false);
   const [displayedRoutines, setDisplayedRoutines] = useState([]);
@@ -94,5 +95,3 @@ const Routines = () => {
     </>
   );
 };
-
-export default Routines;
