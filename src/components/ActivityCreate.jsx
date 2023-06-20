@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { createActivity } from '../../../api';
+import { createActivity } from '../api';
 
 const ActivityCreate = ({ createWindowOpen, token }) => {
   const [activityName, setActivityName] = useState('');
