@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from 'react';
-import { postActivities } from '../../api';
+import { postActivities } from '../api';
 import { useOutletContext } from 'react-router';
 
 export default function Activities() 
