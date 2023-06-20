@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { getAllRoutines, createRoutine } from '../api';
-import './routines.css';
+import './Routines.css';
 import { useNavigate, useOutletContext } from 'react-router';
 import RoutinesHeader from './RoutinesHeader';
 import CreateRoutineForm from './RoutineForm';
