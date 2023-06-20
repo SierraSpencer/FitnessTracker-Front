@@ -1,5 +1,5 @@
 import { useNavigate, useOutletContext } from 'react-router';
-import { seeUserPublicRoutines, deleteRoutine } from '../../api';
+import { seeUserPublicRoutines, deleteRoutine } from '../api';
 import { useState } from 'react';
 
 export default function MyRoutines()
