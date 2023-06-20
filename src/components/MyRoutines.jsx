@@ -7,7 +7,7 @@ import {
 } from '../api';
 import { useEffect, useState } from 'react';
 import './MyRoutines.css';
-import RoutineForm from '../RoutineForm';
+import CreateRoutineForm from '../CreateRoutineForm';
 
 export default function MyRoutines() 
 {
