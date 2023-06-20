@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { getAllActivities } from '../api';
 import { useOutletContext } from 'react-router';
+import ActivitiesHeader from './ActivitiesHeader';
+import ActivityCreate from './ActivityCreate';
 
 const Activities = () => {
   const { allActivities, setAllActivities, myProfile, token } =
