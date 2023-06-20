@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getAllActivities } from '../../api';
+import { getAllActivities } from '../api';
 import { useOutletContext } from 'react-router';
 import ActivitiesHeader from './activitesSubcomponents/activitiesHeader';
 import ActivityCreate from './activitesSubcomponents/activityCreate';
