@@ -4,7 +4,8 @@ import { useOutletContext } from 'react-router';
 import ActivitiesHeader from './ActivitiesHeader';
 import ActivityCreate from './ActivityCreate';
 
-const Activities = () => {
+export default function Activities() 
+{
   const { allActivities, setAllActivities, myProfile, token } =
     useOutletContext();
   const [displayedActivities, setDisplayedActivities] = useState([]);
@@ -42,5 +43,3 @@ const Activities = () => {
     </>
   );
 };
-
-export default Activities;
