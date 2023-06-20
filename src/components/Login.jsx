@@ -1,5 +1,5 @@
 import React from "react";
-import './login.css';
+import './Login.css';
 import { useState } from 'react';
 import { registerUser, loginUser } from '../api';
 import { useNavigate, useOutletContext } from 'react-router';
