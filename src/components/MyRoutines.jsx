@@ -4,11 +4,10 @@ import {
   deleteRoutine,
   getAllRoutines,
   createRoutine,
-} from '../../api';
+} from '../api';
 import { useEffect, useState } from 'react';
 import './myRoutines.css';
-import PopUpEdit from '../utils/popUpEdit';
-import CreateRoutineForm from '../routines/routinesSubcomoponents/createRoutineForm';
+import CreateRoutineForm from '../createRoutineForm';
 
 export default MyRoutines() 
 {
