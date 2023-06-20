@@ -4,7 +4,7 @@ import Nav from '../components/nav/nav';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { fetchMyProfile } from '../api';
 
-function Root() 
+export default function Root() 
 {
   const [token, setToken] = useState('');
   const [myProfile, setMyProfile] = useState({});
@@ -44,4 +44,3 @@ function Root()
     </>
   );
 }
-export default Root;
