@@ -1,0 +1,26 @@
+#nav {
+  display: flex;
+  justify-content: center;
+  border-top: 2px solid #324376;
+  border-bottom: 2px solid #324376;
+  padding: 10px 0;
+}
+
+#nav-links {
+  display: flex;
+  justify-content: space-between;
+  flex: 0 1 600px;
+}
+
+#nav-links a,
+#logout-link {
+  font-weight: 600;
+  text-decoration: none;
+  color: #324376;
+  cursor: pointer;
+}
+
+#nav-links a:hover,
+#logout-link:hover {
+  color: #f68e5f;
+}
