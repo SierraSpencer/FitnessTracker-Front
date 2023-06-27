@@ -19,14 +19,14 @@ export default function Login()
   {
     event.preventDefault();
     const newUser = await registerUser(registerUsername, registerPassword);
+    
     if (!newUser.user) 
     {
       formError(newUser.error);
       return;
     }
-    console.log(newUser);
-    localStorage.setItem('token', newUser.token);
     setToken(newUser.token);
+    localStorage.setItem('token', newUser.token);
     navigate('/myroutines');
   }
   
@@ -39,9 +39,8 @@ export default function Login()
       LoginFormError(loggedInUser.error);
       return;
     }
-    console.log(loggedInUser);
-    localStorage.setItem('token', loggedInUser.token);
     setToken(loggedInUser.token);
+    localStorage.setItem('token', loggedInUser.token);
     navigate('/myroutines');
   }
   
