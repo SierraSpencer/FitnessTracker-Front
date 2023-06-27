@@ -1,12 +1,7 @@
 import { useOutletContext, useParams } from 'react-router';
 import './Routine.css';
 import { useEffect, useState } from 'react';
-import {
-  getAllRoutines,
-  seeUserPublicRoutines,
-  removeActivityFromRoutine,
-  fetchMyProfile,
-} from '../api';
+import {getAllRoutines,seeUserPublicRoutines,removeActivityFromRoutine,fetchMyProfile} from '../api';
 
 export default function Routine() 
 {
@@ -16,25 +11,32 @@ export default function Routine()
   const [editMode, setEditMode] = useState(false);
 
   useEffect(() => {
-    if (!allRoutines[0]) {
+    if (!allRoutines[0]) 
+    {
       (async () => {
         const routines = await getAllRoutines();
         setAllRoutines(routines);
       })();
-    } else {
+    } 
+    else 
+    {
       let routineValue = allRoutines.find((routine) => routine.id == routineId);
-      if (routineValue) {
+      if (routineValue) 
+      {
         setRoutine(routineValue);
       }
     }
 
-    if (!routine.id && myProfile.id) {
+    if (!routine.id && myProfile.id) 
+    {
       (async () => {
         const routines = await seeUserPublicRoutines(token, myProfile.username);
-        for (let r of routines) {
-          if (r.id == routineId) {
-            console.log(r);
-            setRoutine(r);
+        for (let result of routines) 
+        {
+          if (result.id == routineId)
+          {
+            console.log(result);
+            setRoutine(result);
           }
         }
       })();
@@ -42,13 +44,10 @@ export default function Routine()
   });
 
   const handleDelete = async (routineActivityId) => {
-    const removedRoutineActivity = await removeActivityFromRoutine(
-      routineActivityId,
-      token
-    );
+    const removedRoutineActivity = await removeActivityFromRoutine(routineActivityId,token);
 
-    if (removedRoutineActivity.success) {
-      //This command forces a reload of the page so that the page will re-render and the deleted activity will disappear
+    if (removedRoutineActivity.success) 
+    {
       window.location.reload(false);
     }
   };
@@ -73,6 +72,7 @@ export default function Routine()
           <h3 id="activity-details-label">Activity Details:</h3>
           <div id="single-routine-activity-list">
             {routine.activities.map((activity, idx) => {
+          
               return (
                 <div className="single-routine-activity" key={activity.id}>
                   <p>
