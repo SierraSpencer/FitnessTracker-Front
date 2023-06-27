@@ -1,14 +1,13 @@
 import './Nav.css';
 import { Link, useNavigate } from 'react-router-dom';
 
-const Nav = ({ myProfile, setMyProfile }) => 
+export default function Nav(myProfile, setMyProfile) 
 {
   const navigate = useNavigate();
-  const handleLogout = () => 
+  function handleLogout()
   {
-    localStorage.removeItem('token');
     setMyProfile({});
-    console.log(myProfile);
+    localStorage.removeItem('token');
     navigate('/');
   };
 
@@ -28,4 +27,3 @@ const Nav = ({ myProfile, setMyProfile }) =>
     </div>
   );
 };
-export default Nav;
