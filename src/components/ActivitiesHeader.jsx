@@ -1,17 +1,11 @@
 import { useState } from 'react';
-
-const ActivitiesHeader = ({
-  allActivities,
-  setDisplayedActivities,
-  displayedActivities,
-  myProfile,
-  createWindowOpen,
-  setCreateWindowOpen,
-}) => {
+import { BASE_URL} from "../api";
+const ActivitiesHeader = ({allActivities,setDisplayedActivities,displayedActivities,myProfile,createWindowOpen,setCreateWindowOpen}) => {
   const [searchValue, setSearchValue] = useState('');
 
-  const handleSearchActivities = (e) => {
-    e.preventDefault();
+  export default function handleSearchActivities()
+  {
+    event.preventDefault();
     const filteredSearch = allActivities.filter(
       (activity) =>
         activity.name.toLowerCase().includes(searchValue.toLowerCase()) ||
@@ -21,6 +15,7 @@ const ActivitiesHeader = ({
     );
     setDisplayedActivities(filteredSearch);
   };
+  
   return (
     <div id="activities-header">
       <div>
@@ -28,14 +23,14 @@ const ActivitiesHeader = ({
         <div id="activity-search">
           <form
             action="filter-activities"
-            onSubmit={(e) => handleSearchActivities(e, searchValue)}
+            onSubmit={(event) => handleSearchActivities(event, searchValue)}
           >
             <input
               id="filter-activities-search"
               type="text"
               placeholder="Enter a Keyword to narrow your activity search"
               value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
+              onChange={(event) => setSearchValue(event.target.value)}
             />
             <button id="filter-activities-button">Filter Activities</button>
           </form>
