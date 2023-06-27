@@ -32,6 +32,7 @@ export default function Activities()
       <ActivityCreate createWindowOpen={createWindowOpen} token={token} />
       <div id="activities-list">
         {displayedActivities.map((activity) => {
+      
           return (
             <div key={activity.id} className="activity-card">
               <h4>{activity.name}</h4>
