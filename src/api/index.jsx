@@ -1,6 +1,5 @@
 const BASE_URL = "https://fitnesstrac-kr.herokuapp.com/api";
 
-//POST/users/register
 export async function registerUser(username, password) 
 {
   try 
@@ -18,13 +17,13 @@ export async function registerUser(username, password)
     const result = await response.json();
     console.log(result);
     return result;
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
   }
 }
 
-//POST/users/login
-export async function loginUser(username, password) {
+export async function userLogin(username, password) 
+{
   try {
     const response = await fetch(`${BASE_URL}/users/login`, {
       method: 'POST',
@@ -37,16 +36,16 @@ export async function loginUser(username, password) {
       }),
     });
     const result = await response.json();
-    console.log(result);
     return result;
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
   }
 }
 
-//GET/users/me
-export async function fetchMyProfile(token) {
-  try {
+export async function fetchProfile(token) 
+{
+  try 
+  {
     const response = await fetch(`${BASE_URL}/users/me`, {
       headers: {
         'Content-Type': 'application/json',
@@ -54,16 +53,16 @@ export async function fetchMyProfile(token) {
       },
     });
     const result = await response.json();
-    console.log(result);
     return result;
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
   }
 }
 
-//GET/users/:username/routines
-export async function seeUserPublicRoutines(token, usernameOfSearch) {
-  try {
+export async function seeUserPublicRoutines(token, usernameOfSearch) 
+{
+  try 
+  {
     const response = await fetch(
       `${BASE_URL}/users/${usernameOfSearch}/routines`,
       {
@@ -76,25 +75,27 @@ export async function seeUserPublicRoutines(token, usernameOfSearch) {
     const result = await response.json();
     console.log(result);
     return result;
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
   }
 }
 
-//GET/routines
-export async function getAllRoutines() {
-  try {
+export async function getAllRoutines() 
+{
+  try 
+  {
     const response = await fetch(`${BASE_URL}/routines`);
-    const data = await response.json();
+    const result = await response.json();
     return data;
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
   }
 }
 
-//POST/routines
-export async function createRoutine(token, name, goal, isPublic) {
-  try {
+export async function createRoutine(token, name, goal, isPublic) 
+{
+  try 
+  {
     const response = await fetch(`${BASE_URL}/routines`, {
       method: 'POST',
       headers: {
@@ -110,19 +111,15 @@ export async function createRoutine(token, name, goal, isPublic) {
     const result = await response.json();
     console.log(result);
     return result;
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
   }
 }
 
-//POST/routines/:routineId/activities
-export async function addActivityToRoutine(
-  routineId,
-  activityId,
-  count,
-  duration
-) {
-  try {
+export async function addActivityToRoutine(routineId,activityId,count,duration) 
+{
+  try 
+  {
     const response = await fetch(
       `${BASE_URL}/routines/${routineId}/activities`,
       {
@@ -140,14 +137,15 @@ export async function addActivityToRoutine(
     const result = await response.json();
     console.log(result);
     return result;
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
   }
 }
 
-//PATCH/routines/:routineId
-export async function editRoutine(token, routineId, editFields) {
-  try {
+export async function editRoutine(token, routineId, editFields) 
+{
+  try 
+  {
     const response = await fetch(`${BASE_URL}/routines/${routineId}`, {
       method: 'PATCH',
       headers: {
@@ -159,14 +157,15 @@ export async function editRoutine(token, routineId, editFields) {
     const result = await response.json();
     console.log(result);
     return result;
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
   }
 }
 
-//DELETE/routines/:routineId
-export async function deleteRoutine(token, routineId) {
-  try {
+export async function deleteRoutine(token, routineId) 
+{
+  try 
+  {
     const response = await fetch(`${BASE_URL}/routines/${routineId}`, {
       method: 'DELETE',
       headers: {
@@ -177,26 +176,28 @@ export async function deleteRoutine(token, routineId) {
     const result = await response.json();
     console.log(result);
     return result;
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
   }
 }
 
-//GET/activities
-export async function getAllActivities() {
-  try {
+export async function getAllActivities() 
+{
+  try 
+  {
     const response = await fetch(`${BASE_URL}/activities`);
     const data = await response.json();
     console.log(data);
     return data;
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
   }
 }
 
-//POST/ACTIVITIES
-export async function createActivity(token, name, description) {
-  try {
+export async function createActivity(token, name, description) 
+{
+  try 
+  {
     const response = await fetch(`${BASE_URL}/activities`, {
       method: 'POST',
       headers: {
@@ -211,14 +212,15 @@ export async function createActivity(token, name, description) {
     const data = await response.json();
     console.log(data);
     return data;
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
   }
 }
 
-//DELETE /routine_activities/:routineActivityId
-export async function removeActivityFromRoutine(routineActivityId, token) {
-  try {
+export async function removeActivityFromRoutine(routineActivityId, token) 
+{
+  try 
+  {
     const response = await fetch(
       `${BASE_URL}/routine_activities/${routineActivityId}`,
       {
@@ -232,14 +234,15 @@ export async function removeActivityFromRoutine(routineActivityId, token) {
     const result = await response.json();
     console.log(result);
     return result;
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
   }
 }
 
-//PATCH /routine_activities/:routineActivityId
-export async function editCountAndDuration(token, routineId, editFields) {
-  try {
+export async function editCountAndDuration(token, routineId, editFields) 
+{
+  try 
+  {
     const response = await fetch(
       `${BASE_URL}/routine_activities/${routineId}`,
       {
@@ -254,7 +257,7 @@ export async function editCountAndDuration(token, routineId, editFields) {
     const result = await response.json();
     console.log(result);
     return result;
-  } catch (err) {
-    console.error(err);
+  } catch (error) {
+    console.error(error);
   }
 }
