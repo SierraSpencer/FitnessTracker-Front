@@ -3,7 +3,6 @@ import { getAllRoutines, createRoutine } from '../api';
 import './Routines.css';
 import { useNavigate, useOutletContext } from 'react-router';
 import RoutinesHeader from './RoutinesHeader';
-//import CreateRoutineForm from './CreateRoutineForm';
 
 export default function Routines()
 {
@@ -57,7 +56,7 @@ export default function Routines()
                   </p>
                   {myProfile.username === routine.creatorName && (
                     <p className="your-routine-message">
-                      This is YOUR Routine!
+                      Your Routine
                     </p>
                   )}
                   <p className="routine-goal">Goal: {routine.goal}</p>
@@ -67,7 +66,6 @@ export default function Routines()
                   onClick={() => handleRoutineSelect(routine)}
                 >
                   Try{myProfile.username === routine.creatorName && '/Edit'}{' '}
-                  Now!
                 </div>
               </div>
               {routine.activities.length > 0 && (
@@ -75,7 +73,6 @@ export default function Routines()
                   <p className="routine-activities-header">
                     Activities Included:{' '}
                   </p>
-
                   <div className="routine-activity-bubble-container">
                     {routine.activities.map((activity) => (
                       <span
