@@ -1,13 +1,7 @@
 import { useNavigate, useOutletContext } from 'react-router';
-import {
-  seeUserPublicRoutines,
-  deleteRoutine,
-  getAllRoutines,
-  createRoutine,
-} from '../api';
+import {seeUserPublicRoutines, deleteRoutine, getAllRoutines, createRoutine} from '../api';
 import { useEffect, useState } from 'react';
 import './MyRoutines.css';
-//import CreateRoutineForm from '../CreateRoutineForm';
 
 export default function MyRoutines() 
 {
@@ -16,7 +10,6 @@ export default function MyRoutines()
   const [editMode, setEditMode] = useState('');
   const [editRoutine, setEditRoutine] = useState({});
   const [createWindowOpen, setCreateWindowOpen] = useState(false);
-
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -37,16 +30,7 @@ export default function MyRoutines()
   return (
     <>
       <div id="my-routines-body">
-        <h2>Welcome to YOUR routines, {myProfile.username}!</h2>
-        <p>
-          Here you can browse all your routines, make changes to them, or even
-          delete them if you no longer want or need them.
-        </p>
-        <p>
-          {'('}Tip: If you want to keep your routine, but dont want other users
-          to be able to see it, set it to 'Private' and it will no longer be
-          available to other users.{')'}
-        </p>
+        <h2>Welcome, {myProfile.username}!</h2>
         {userRoutines[0] ? (
           <>
             <h3>Your Routines:</h3>
@@ -58,7 +42,6 @@ export default function MyRoutines()
               >
                 Click here
               </span>{' '}
-              to create a new routine!
             </p>
           </>
         ) : (
@@ -70,7 +53,6 @@ export default function MyRoutines()
             >
               Click here
             </span>{' '}
-            to add some!
           </h4>
         )}
         <CreateRoutineForm
